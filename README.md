@@ -36,4 +36,60 @@ The data in this work was obtained from a dedicated apparatus for alignment and 
 *"Xsens DOT sensor provides 3D angular velocity using a gyroscope, 3D acceleration using accelerometer and 3D earth magnetic field using a magnetometer. Combined with Xsens sensor fusion algorithms, 3D orientation and free acceleration are provided. With the wireless nature of Bluetooth 5.0, Xsens DOT sensor is an excellent measurement unit for tracking human body motions"* ([Xsense-DOT](https://www.xsens.com/hubfs/Downloads/Manuals/Xsens%20DOT%20User%20Manual.pdf))
 
 &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
- <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_Setup_plain.png?raw=true" width="600" class='center'/>
+ <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_Setup_plain.jpg?raw=true" width="600" class='center'/>
+
+
+## Code
+
+For convenience, two notebooks are provided, enabling reproduction of our results.
+
+* **Full Mode** (GPU recommended) - Full solution pipeline from training to inference. 
+
+* **Test Mode** (GPU free) - Direct inference and comparison between competing models, by uploading pretrained model weights, trained over *Intel i5-9600K CPU @ 3.70 GHz and NVIDIA GTX2080 GPU*. 
+
+### Directory tree
+<pre>
+[root directory]
+├── figures
+├── data
+├── execution
+|   ├── Training Mode
+|       └── *Training.ipynb*
+|   └── Inference Mode
+|       ├── *Inference.ipynb*
+|       ├── RNN.pt
+|       ├── Bi_LSTM.pt
+|       └── Bi_GRU.pt
+...
+└── requirements.txt
+<!--  Readme.md -->
+</pre>
+
+
+## Citation
+
+If you found the experimental **DATA** useful for your research, please cite our paper:
+```
+@article{shurin2022autonomous,
+  title={The Autonomous Platforms Inertial Dataset},
+  author={Shurin, Artur and Saraev, Alex and Yona, Mor and Gutnik, Yevgeni and Faber, Sharon and Etzion, Aviad and Klein, Itzik},
+  journal={IEEE Access},
+  pages={10191--10201},
+  year={2022},
+  publisher={IEEE}
+}
+```
+
+If you found the paper's CODE helpful in your research, please cite our paper:
+```
+@article{engelsman2023data,
+  title={Data-driven denoising of stationary accelerometer signals},
+  author={Engelsman, Daniel and Klein, Itzik},
+  journal={Measurement},
+  pages={113218},
+  year={2023},
+  publisher={Elsevier}
+}
+```
+
+[<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/ArXiv_web.svg/250px-ArXiv_web.svg.png width=70/>](https://arxiv.org/abs/2206.05937)
