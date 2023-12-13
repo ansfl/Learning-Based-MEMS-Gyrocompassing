@@ -7,9 +7,7 @@ Inertial navigation systems (INS) are widely used in both manned and autonomous 
 &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
  <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_measurement.png?raw=true" width="600" class='center'/>
 
-The figure above provides a representative visualization of a random gyroscope sample lasting 4-minute across all three 3 channels, resulting in a dimensionality of 144,000$\times$3. While the dense measurements form the colored background for each axis, their corresponding sample means are marked with dashed lines to emphasize the specific axial projection of $\omega_{ie}$. 
-
-To examine the instrumental noise under steady-state conditions, a 1-hour static measurement is recorded, and the well-known Allan Variance (AV) analysis is then performed to quantify error dynamics through extensive time averaging:
+The figure above provides a representative visualization of a random gyroscope sample lasting 4-minute across all three 3 channels, resulting in a dimensionality of 144,000$\times$3. While the dense measurements form the colored background for each axis, their corresponding sample means are marked with dashed lines to emphasize the specific axial projection of $\omega_{ie}$. To examine the instrumental noise under steady-state conditions, a 1-hour static measurement is recorded, and the well-known Allan Variance (AV) analysis is then performed to quantify error dynamics through extensive time averaging:
 
 &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
  <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_AV.png?raw=true" width="700" class='center'/>
@@ -31,13 +29,12 @@ In conclusion, this study we present a practical deep learning framework to effe
 
 To ensure robust generalizability, acquiring data of both quantity and quality is crucial. The figure below illustrates our experimental setup conducted under controlled laboratory conditions, free from external disturbances. The five main components are highlighted in blue parentheses:
 
-1) Control module\footnote{MRU-P datasheet @ \url{https://www.inertiallabs.com/mru-datasheet}}: Ensures level conditions and
+1) Control module\footnote{MRU-P datasheet @ [https://www.inertiallabs.com/mru-datasheet]: Ensures level conditions and
    provides GT heading angles ($y$) with a static accuracy of $0.2^\circ$.
 2) Test module\footnote{Emcore SDC500 datasheet @ [https://emcore.com/SDC500.pdf](https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf). Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1$^\circ$/hr and ARW of 0.02$^\circ$/$\sqrt{\text{hr}}$.
 3) Rotating plate: Both sensors are positioned on a levelled plate that rotates freely around its azimuth axis, allowing stationary measurements across various heading angles.
 4) Power supply: Ensures a stable and reliable source of energy for uninterrupted system functionality.
 5) Computing unit: Serves as the central processing hub, facilitating efficient operation and ensuring that real-time data is saved, labeled, and appropriately organized.
-\end{enumerate}
 
 &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
  <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_Setup.jpg?raw=true" width="600" class='center'/>
@@ -45,11 +42,11 @@ To ensure robust generalizability, acquiring data of both quantity and quality i
 
 ## Code
 
-For convenience, two notebooks are provided, enabling reproduction of our results.
+For convenience, both inference and training notebooks are provided, GPU-required.
 
-* **Full Mode** (GPU recommended) - Full solution pipeline from training to inference. 
+* **Full Mode** - Full solution pipeline from training to inference. 
 
-* **Test Mode** (GPU free) - Direct inference and comparison between competing models, by uploading pretrained model weights, trained over *Intel i5-9600K CPU @ 3.70 GHz and NVIDIA GTX2080 GPU*. 
+* **Test Mode** - Direct inference and comparison between competing models, by uploading pretrained model weights, trained over *single Nvidia T4 GPU*. 
 
 ### Directory tree
 <pre>
@@ -72,27 +69,14 @@ For convenience, two notebooks are provided, enabling reproduction of our result
 
 ## Citation
 
-If you found the experimental **DATA** useful for your research, please cite our paper:
+Would appreciate the users stars (on this repo) and citation of our article as:
 ```
 @article{shurin2022autonomous,
-  title={The Autonomous Platforms Inertial Dataset},
-  author={Shurin, Artur and Saraev, Alex and Yona, Mor and Gutnik, Yevgeni and Faber, Sharon and Etzion, Aviad and Klein, Itzik},
-  journal={IEEE Access},
+  title={Learning-based-Gyrocompassing},
+  author={Engelsman, Daniel, and, Klein, Itzik},
+  journal={ArXiv},
   pages={10191--10201},
-  year={2022},
-  publisher={IEEE}
-}
-```
-
-If you found the paper's CODE helpful in your research, please cite our paper:
-```
-@article{engelsman2023data,
-  title={Data-driven denoising of stationary accelerometer signals},
-  author={Engelsman, Daniel and Klein, Itzik},
-  journal={Measurement},
-  pages={113218},
-  year={2023},
-  publisher={Elsevier}
+  year={2023}
 }
 ```
 
