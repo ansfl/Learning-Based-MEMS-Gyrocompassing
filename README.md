@@ -29,9 +29,9 @@ In conclusion, this study we present a practical deep learning framework to effe
 
 To ensure robust generalizability, acquiring data of both quantity and quality is crucial. The figure below illustrates our experimental setup conducted under controlled laboratory conditions, free from external disturbances. The five main components are highlighted in blue parentheses:
 
-1) Control module\footnote{MRU-P datasheet @ [https://www.inertiallabs.com/mru-datasheet]: Ensures level conditions and
+1) Control module [MRU-P datasheet](https://www.inertiallabs.com/mru-datasheet): Ensures level conditions and
    provides GT heading angles ($y$) with a static accuracy of $0.2^\circ$.
-2) Test module\footnote{Emcore SDC500 datasheet @ [https://emcore.com/SDC500.pdf](https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf). Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1$^\circ$/hr and ARW of 0.02$^\circ$/$\sqrt{\text{hr}}$.
+2) Test module @ [Emcore SDC500 datasheet](https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf). Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1 $^\circ$ / hr and ARW of 0.02 $^\circ$ / $\sqrt{\text{hr}}$ .
 3) Rotating plate: Both sensors are positioned on a levelled plate that rotates freely around its azimuth axis, allowing stationary measurements across various heading angles.
 4) Power supply: Ensures a stable and reliable source of energy for uninterrupted system functionality.
 5) Computing unit: Serves as the central processing hub, facilitating efficient operation and ensuring that real-time data is saved, labeled, and appropriately organized.
@@ -58,9 +58,7 @@ For convenience, both inference and training notebooks are provided, GPU-require
 |       └── *Training.ipynb*
 |   └── Inference Mode
 |       ├── *Inference.ipynb*
-|       ├── RNN.pt
-|       ├── Bi_LSTM.pt
-|       └── Bi_GRU.pt
+|
 ...
 └── requirements.txt
 <!--  Readme.md -->
@@ -69,9 +67,9 @@ For convenience, both inference and training notebooks are provided, GPU-require
 
 ## Citation
 
-Would appreciate the users stars (on this repo) and citation of our article as:
+The authors would appreciate the users stars (on this repo) and citation of our article as well via:
 ```
-@article{shurin2022autonomous,
+@article{engelsman2023learning,
   title={Learning-based-Gyrocompassing},
   author={Engelsman, Daniel, and, Klein, Itzik},
   journal={ArXiv},
