@@ -15,7 +15,7 @@ The figure above provides a representative visualization of a random gyroscope s
 Next, the stabilization process of the baseline signal can be illustrated, accompanied by the running version of a one standard deviation ($\pm \sigma(n)$). The top subfigure presents the short-term time scale, while the bottom one shows the asymptotic convergence resulting from the long-lasting averaging attributes. This demonstrates how the inclusion of additional collected samples effectively cancels out the noise effects.
 
  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
- <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/fig_w_ie.png?raw=true" width="700" class='center'/>
+ <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_w_ie_0.png?raw=true" width="700" class='center'/>
 
 And finally, after training the model' or alternatively, using the pre-trained weights, performances of both the baseline (blue bubbles) and our model (yellow triangles), can be compared with respect to the GT heading angle of $\psi_{\,\text{GT}}$ = 192.1 $^\circ$, is provided for reference in green.
 
