@@ -31,7 +31,7 @@ To ensure robust generalizability, acquiring data of both quantity and quality i
 
 1) Control module [MRU-P datasheet](https://www.inertiallabs.com/mru-datasheet): Ensures level conditions and
    provides GT heading angles ($y$) with a static accuracy of $0.2^\circ$.
-2) Test module @ [Emcore SDC500 datasheet](https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf). Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1 $^\circ$ / hr and ARW of 0.02 $^\circ$ / $\sqrt{\text{hr}}$ .
+2) Test module @ [Emcore SDC500 datasheet](https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf). Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0 , ..., x_t$) at an opposing heading angle ($y-180^\circ$), with bias instability specification of 1 $^\circ$ / $\text{hr}$ and ARW of 0.02 $^\circ$ / $\sqrt{\text{hr}}$ .
 3) Rotating plate: Both sensors are positioned on a levelled plate that rotates freely around its azimuth axis, allowing stationary measurements across various heading angles.
 4) Power supply: Ensures a stable and reliable source of energy for uninterrupted system functionality.
 5) Computing unit: Serves as the central processing hub, facilitating efficient operation and ensuring that real-time data is saved, labeled, and appropriately organized.
