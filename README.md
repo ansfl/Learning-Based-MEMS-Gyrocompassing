@@ -29,24 +29,17 @@ And finally, after training the model' or alternatively, using the pre-trained w
 
 In conclusion, this study we present a practical deep learning framework to effectively compensate for the inherent errors in low-performance gyroscopes. By learning its temporal and spatial error patterns, our model demonstrates robustness to internal and environmental disturbances, allowing for accurate gyrocompassing within shorter time intervals. Our main contribution lies in three key aspects.
 
-### Dataset
+### Experimental setup & Dataset
 
-The five main components are highlighted in blue parentheses:
-\begin{enumerate}
-   \item Control module\footnote{MRU-P datasheet @ \url{https://www.inertiallabs.com/mru-datasheet}}: Ensures level conditions and
+To ensure robust generalizability, acquiring data of both quantity and quality is crucial. The figure below illustrates our experimental setup conducted under controlled laboratory conditions, free from external disturbances. The five main components are highlighted in blue parentheses:
+
+1) Control module\footnote{MRU-P datasheet @ \url{https://www.inertiallabs.com/mru-datasheet}}: Ensures level conditions and
    provides GT heading angles ($y$) with a static accuracy of $0.2^\circ$.
-   %%%%%%%%%%%%%%%%%%%%%%
-   \item Test module\footnote{Emcore SDC500 datasheet @ \href{https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf}{https://emcore.com/SDC500.pdf}}: Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1$^\circ$/hr and ARW of 0.02$^\circ$/$\sqrt{\text{hr}}$.
-   %%%%%%%%%%%%%%%%%%%%%%
-   \item Rotating plate: Both sensors are positioned on a levelled plate that rotates freely around its azimuth axis, allowing stationary measurements across various heading angles.
-   %%%%%%%%%%%%%%%%%%%%%%
-   \item Power supply: Ensures a stable and reliable source of energy for uninterrupted system functionality.
-   %%%%%%%%%%%%%%%%%%%%%%
-   \item Computing unit: Serves as the central processing hub, facilitating efficient operation and ensuring that real-time data is saved, labeled, and appropriately organized.
+2) Test module\footnote{Emcore SDC500 datasheet @ \href{https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf}{https://emcore.com/SDC500.pdf}}: Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1$^\circ$/hr and ARW of 0.02$^\circ$/$\sqrt{\text{hr}}$.
+3) Rotating plate: Both sensors are positioned on a levelled plate that rotates freely around its azimuth axis, allowing stationary measurements across various heading angles.
+4) Power supply: Ensures a stable and reliable source of energy for uninterrupted system functionality.
+5) Computing unit: Serves as the central processing hub, facilitating efficient operation and ensuring that real-time data is saved, labeled, and appropriately organized.
 \end{enumerate}
-
-
-*"Xsens DOT sensor provides 3D angular velocity using a gyroscope, 3D acceleration using accelerometer and 3D earth magnetic field using a magnetometer. Combined with Xsens sensor fusion algorithms, 3D orientation and free acceleration are provided. With the wireless nature of Bluetooth 5.0, Xsens DOT sensor is an excellent measurement unit for tracking human body motions"* ([Xsense-DOT](https://www.xsens.com/hubfs/Downloads/Manuals/Xsens%20DOT%20User%20Manual.pdf))
 
 &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
  <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_Setup.jpg?raw=true" width="600" class='center'/>
