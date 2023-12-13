@@ -1,7 +1,5 @@
 &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  <img src="https://github.com/ansfl/MEMS-IMU-Denoising/blob/main/figrues/Logo.png?raw=true" width="500" />
 
-<!-- # MEMS-IMU-Denoising
-This repository contains both code and experimental data associated with our paper "Parametric and State Estimation of Stationary MEMS-IMUs: A Tutorial". -->
 
 ### Introduction
 Inertial navigation systems (INS) are widely used in both manned and autonomous platforms. One of the most critical tasks prior to their operation is to accurately determine their initial alignment while stationary, as it forms the cornerstone for the entire INS operational trajectory. While low-performance accelerometers can easily determine roll and pitch angles (leveling), establishing the heading angle (gyrocompassing) with low-performance gyros proves to be a challenging task without additional sensors. While in stationary conditions, each measurement was recorded at a sampling rate of 600 Hz for 4 minutes, maintaining an average interval of 5$^\circ$ across the entire 360$^\circ$ azimuth plane. The overall dataset comprises 80 samples, randomly split into training, validation, and test sets with a ratio of 70:10:20, where training was conducted using a single Nvidia T4 GPU. 
@@ -35,7 +33,7 @@ To ensure robust generalizability, acquiring data of both quantity and quality i
 
 1) Control module\footnote{MRU-P datasheet @ \url{https://www.inertiallabs.com/mru-datasheet}}: Ensures level conditions and
    provides GT heading angles ($y$) with a static accuracy of $0.2^\circ$.
-2) Test module\footnote{Emcore SDC500 datasheet @ [https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf](https://emcore.com/SDC500.pdf): Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1$^\circ$/hr and ARW of 0.02$^\circ$/$\sqrt{\text{hr}}$.
+2) Test module\footnote{Emcore SDC500 datasheet @ [https://emcore.com/SDC500.pdf](https://emcore.com/wp-content/uploads/2022/05/966762_B-SDC500.pdf). Positioned at the opposite end of the diameter, our MEMS-IMU provides stationary measurements ($x_0, ..., x_t$) at an opposing heading angle ($y-180^\circ$), with specified BI of 1$^\circ$/hr and ARW of 0.02$^\circ$/$\sqrt{\text{hr}}$.
 3) Rotating plate: Both sensors are positioned on a levelled plate that rotates freely around its azimuth axis, allowing stationary measurements across various heading angles.
 4) Power supply: Ensures a stable and reliable source of energy for uninterrupted system functionality.
 5) Computing unit: Serves as the central processing hub, facilitating efficient operation and ensuring that real-time data is saved, labeled, and appropriately organized.
