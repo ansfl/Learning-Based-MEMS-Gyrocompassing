@@ -4,19 +4,30 @@
 This repository contains both code and experimental data associated with our paper "Parametric and State Estimation of Stationary MEMS-IMUs: A Tutorial". -->
 
 ### Introduction
-Inertial navigation systems (INS) are widely used in both manned and autonomous platforms. One of the most critical tasks prior to their operation is to accurately determine their initial alignment while stationary, as it forms the cornerstone for the entire INS operational trajectory. While low-performance accelerometers can easily determine roll and pitch angles (leveling), establishing the heading angle (gyrocompassing) with low-performance gyros proves to be a challenging task without additional sensors. This arises from the limited signal strength of Earth's rotation rate, often overridden by gyro noise itself. Complex missions, marked by inconsistent data availability, can expose the standalone inertial navigation system (INS) to a wide range of instrumental errors that may rapidly degrade the navigation solution. To circumvent this deficiency, in this study we present a practical deep learning framework to effectively compensate for the inherent errors in low-performance gyroscopes. The resulting capability enables gyrocompassing, thereby eliminating the need for subsequent prolonged filtering phase (fine alignment). Through the development of theory and experimental validation, we demonstrate that the improved initial conditions establish a new lower error bound, bringing affordable gyros one step closer to being utilized in high-end tactical tasks.
+Inertial navigation systems (INS) are widely used in both manned and autonomous platforms. One of the most critical tasks prior to their operation is to accurately determine their initial alignment while stationary, as it forms the cornerstone for the entire INS operational trajectory. While low-performance accelerometers can easily determine roll and pitch angles (leveling), establishing the heading angle (gyrocompassing) with low-performance gyros proves to be a challenging task without additional sensors. While in stationary conditions, each measurement was recorded at a sampling rate of 600 Hz for 4 minutes, maintaining an average interval of 5$^\circ$ across the entire 360$^\circ$ azimuth plane. The overall dataset comprises 80 samples, randomly split into training, validation, and test sets with a ratio of 70:10:20, where training was conducted using a single Nvidia T4 GPU. 
 
 &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
  <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_measurement.png?raw=true" width="600" class='center'/>
 
-A candidate solution that is often overlooked is the use of multiple sensors. The increased sampling of the observed phenomenon, results in the improvement of several key factors such as signal accuracy, frequency resolution, noise rejection, and higher redundancy. In this study, a stationary and levelled sensors array is taken, and its robustness against the instrumental errors is simplified and analyzed. Subsequently, the hypothesized model is compared with the experimental results, and the level of agreement between them is thoroughly discussed. Ultimately, our results showcase the vast potential of employing multiple sensors, as we observe improvements spanning from the signal level to each navigation state.
+The figure above provides a representative visualization of a random gyroscope sample lasting 4-minute across all three 3 channels, resulting in a dimensionality of 144,000$\times$3. While the dense measurements form the colored background for each axis, their corresponding sample means are marked with dashed lines to emphasize the specific axial projection of $\omega_{ie}$. Next, to examine the instrumental noise under steady-state conditions, a 1-hour static measurement is recorded, and the well-known Allan Variance (AV) analysis is then performed to quantify error dynamics through extensive time averaging:
 
-&nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  <img src="https://github.com/ansfl/Multiple-MEMS-IMU-Estimation/blob/main/figures/PDF_vs_Time_Fin.png?raw=true" width="520" class='center'/>
+&nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+ <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_AV.png?raw=true" width="600" class='center'/>
 
-The main contribution of this work lies in four key aspects: (i) Novel analytical framework - we propose a simplified system model that is error-centred, with a specific focus on the contribution of the sensors count to the INS drift. (ii) Comprehensive validation - we evaluate the effectiveness of our model with an in-lab experiment, followed by a meticulous analysis, visualization, and discussion. (iii) Practicality - all improvements in accuracy and precision, were exclusively tested on real-world applications.
+ &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+ <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/fig_w_ie.png?raw=true" width="600" class='center'/>
 
-&nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
- <img src="https://github.com/ansfl/Multiple-MEMS-IMU-Estimation/blob/main/figures/Fig_combined.png?raw=true" width="520" class='center'/>
+ &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+ <img src="https://github.com/ansfl/Learning-Based-MEMS-Gyrocompassing/blob/main/figures/Fig_GC_ML.png?raw=true" width="600" class='center'/>
+
+
+To circumvent this deficiency, in this study we present a practical deep learning framework to effectively compensate for the inherent errors in low-performance gyroscopes. By learning its temporal and spatial error patterns, our model demonstrates robustness to internal and environmental disturbances, allowing for accurate gyrocompassing within shorter time intervals. Our main contribution lies in three key aspects: 
+
+* Our learning framework is tailor-made for MEMS-based sensors, reducing waiting times by a factor of ten or, alternatively, cutting alignment error by over 50\%.
+
+* Thorough evaluation: Errors undergo initial theoretical analysis before being experimentally validated across a diverse range of orientations.
+
+* Open-source accessibility: To allow a first-person impression, both code and data are openly shared in this repository, enabling transparent reproduction of our results.
 
 
 ### Dataset
