@@ -69,13 +69,12 @@ For convenience, both inference and training notebooks are provided, GPU-require
 
 The authors would appreciate the users stars (on this repo) and citation of our article as well via:
 ```
-@article{engelsman2023learning,
-  title={Learning-based-Gyrocompassing},
-  author={Engelsman, Daniel, and, Klein, Itzik},
-  journal={ArXiv},
-  pages={10191--10201},
+@article{engelsman2023towards,
+  title={Towards Learning-Based Gyrocompassing},
+  author={Engelsman, Daniel and Klein, Itzik},
+  journal={arXiv preprint arXiv:2312.12121},
   year={2023}
 }
 ```
 
-[<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/ArXiv_web.svg/250px-ArXiv_web.svg.png width=70/>](https://arxiv.org/abs/2206.05937)
+[<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/ArXiv_web.svg/250px-ArXiv_web.svg.png width=70/>](https://arxiv.org/abs/2312.12121)
